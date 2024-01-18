@@ -1,20 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
+    <meta charset="UTF-8">
     <base href="/">
 
     <meta charset="UTF-8">
@@ -30,22 +18,98 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.ico" />
 
-    <title>mac_style_portfolio</title>
+    <title>Arda</title>
     <link rel="manifest" href="manifest.json">
 
     <script>
 
         // The value below is injected by flutter build, do not touch.
-        const serviceWorkerVersion = "1035534539";
+        const serviceWorkerVersion = "2570622712";
     </script>
     <script>
         var dartPdfJsVersion = "3.2.146";
     </script>
     <!-- This script adds the flutter initialization JS code -->
     <script src="flutter.js" defer></script>
+    <script defer src="main.dart.js" type="application/javascript">
+        jQuery(document).ready(function () {
+            //Preloader
+            jQuery(window).on("load", function () {
+                preloaderFadeOutTime = 500;
+                function hidePreloader() {
+                    var wrapper = jQuery('.spinner-wrapper');
+                    var spinner = jQuery('.spinner');
+                    wrapper.fadeOut(preloaderFadeOutTime);
+                    spinner.fadeOut(preloaderFadeOutTime);
+                }
+                hidePreloader();
+            });
+        });
+
+    </script>
+    <style>
+        .spinner {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: 48%;
+            left: 48%;
+        }
+
+        .double-bounce1,
+        .double-bounce2 {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: #333;
+            opacity: 0.6;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+            animation: sk-bounce 2.0s infinite ease-in-out;
+        }
+
+        .double-bounce2 {
+            -webkit-animation-delay: -1.0s;
+            animation-delay: -1.0s;
+        }
+
+        @-webkit-keyframes sk-bounce {
+
+            0%,
+            100% {
+                -webkit-transform: scale(0.0)
+            }
+
+            50% {
+                -webkit-transform: scale(1.0)
+            }
+        }
+
+        @keyframes sk-bounce {
+
+            0%,
+            100% {
+                transform: scale(0.0);
+                -webkit-transform: scale(0.0);
+            }
+
+            50% {
+                transform: scale(1.0);
+                -webkit-transform: scale(1.0);
+            }
+        }
+    </style>
 </head>
 
-<body>
+<body id="app-container">
+    <!--CSS Spinner-->
+    <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+    </div>
     <script>
         window.addEventListener('load', function (ev) {
             // Download main.dart.js
